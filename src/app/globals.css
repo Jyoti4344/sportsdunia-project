@@ -34,6 +34,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -68,5 +69,75 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced color palette */
+@layer base {
+  :root {
+    --primary: 220 85% 30%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 75% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 280 65% 45%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --destructive: 0 84.2% 50%;
+    --destructive-foreground: 210 20% 98%;
+    --chart-1: 12 80% 55%;
+    --chart-2: 173 65% 35%;
+    --chart-3: 197 45% 20%;
+    --chart-4: 43 80% 60%;
+    --chart-5: 27 90% 62%;
+  }
+
+  .dark {
+    --primary: 210 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 70% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 280 60% 55%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 210 20% 98%;
+    --chart-1: 220 75% 55%;
+    --chart-2: 160 65% 50%;
+    --chart-3: 30 85% 60%;
+    --chart-4: 280 70% 65%;
+    --chart-5: 340 80% 60%;
+  }
+}
+
+/* Improved accessibility */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .focus-outline {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+}
+
+/* Custom scrollbar */
+@layer components {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
   }
 }

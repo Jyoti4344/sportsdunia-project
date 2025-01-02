@@ -25,15 +25,15 @@ export function AnalyticsChart() {
   const [selectedYear, setSelectedYear] = useState("2023")
 
   return (
-    <Card>
+    <Card className="bg-card">
       <CardHeader>
-        <CardTitle>Revenue Overview</CardTitle>
-        <CardDescription>Monthly revenue from articles</CardDescription>
+        <CardTitle className="text-card-foreground">Revenue Overview</CardTitle>
+        <CardDescription className="text-muted-foreground">Monthly revenue from articles</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="mb-4">
           <Select defaultValue={selectedYear} onValueChange={setSelectedYear}>
-            <SelectTrigger>
+            <SelectTrigger className="w-[180px] bg-background text-foreground">
               <SelectValue>{selectedYear}</SelectValue>
             </SelectTrigger>
             <SelectContent>
@@ -64,13 +64,13 @@ export function AnalyticsChart() {
             >
               <XAxis
                 dataKey="name"
-                stroke="#888888"
+                stroke="hsl(var(--card-foreground))"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
               />
               <YAxis
-                stroke="#888888"
+                stroke="hsl(var(--card-foreground))"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
@@ -80,7 +80,7 @@ export function AnalyticsChart() {
               <Line
                 type="monotone"
                 dataKey="total"
-                stroke="var(--color-total)"
+                stroke="hsl(var(--chart-1))"
                 strokeWidth={2}
                 dot={false}
               />

@@ -27,10 +27,10 @@ const activities = [
 
 export function RecentActivity() {
   return (
-    <Card>
+    <Card className="bg-card">
       <CardHeader>
-        <CardTitle>Recent Activity</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-card-foreground">Recent Activity</CardTitle>
+        <CardDescription className="text-muted-foreground">
           Latest actions from authors and users
         </CardDescription>
       </CardHeader>
@@ -38,15 +38,15 @@ export function RecentActivity() {
         <div className="space-y-8">
           {activities.map((activity, index) => (
             <div key={index} className="flex items-center">
-              <Avatar className="h-9 w-9">
+              <Avatar className="h-9 w-9 border-2 border-primary">
                 <AvatarImage src={activity.avatar} alt={activity.user} />
-                <AvatarFallback>{activity.user[0]}</AvatarFallback>
+                <AvatarFallback className="bg-primary text-primary-foreground">{activity.user[0]}</AvatarFallback>
               </Avatar>
               <div className="ml-4 space-y-1">
                 <p className="text-sm font-medium leading-none">
-                  {activity.user}
+                  <span className="text-card-foreground">{activity.user}</span>
                   <span className="text-muted-foreground"> {activity.action} </span>
-                  {activity.content}
+                  <span className="text-primary">{activity.content}</span>
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {activity.time}
